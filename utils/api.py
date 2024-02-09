@@ -33,3 +33,32 @@ class GoogleMapsApi():
         result_post = http_method.post(post_url, body=json_for_create_location)
         print(result_post.text)
         return result_post
+    
+    """Метод для проверки новой локации"""
+
+    @staticmethod
+    def get_new_place(place_id):
+
+        get_resourse = "/maps/api/place/get/json" #Ресурс метода get
+        get_url = base_url + get_resourse + key + "&place_id=" + place_id 
+        print(get_url)
+        result_get = http_method.get(get_url)
+        print(result_get.text)
+        return result_get
+    
+    """Метод для изменения новой локации"""
+
+    @staticmethod
+    def put_new_place(place_id):
+
+        put_resourse = "/maps/api/place/update/json"
+        put_url = base_url + put_resourse + key
+        print(put_url)
+        json_for_update_new_location = {
+            "place_id": place_id,
+            "address":"100 Lenina street, RU", 
+            "key":"qaclick123" 
+        }
+        result_put = http_method.put(put_url, body=json_for_update_new_location)
+        print(result_put.text)
+        return result_put
