@@ -1,3 +1,5 @@
+import json
+
 from requests import Response
 
 
@@ -16,3 +18,10 @@ class Checking():
         else:
             print("Провал!!! Статус код = " + str(response.status_code))
 
+    """Метод для проверки налчия полей в ответ запроса"""
+
+    @staticmethod
+    def check_json_token(response: Response, expected_value):
+        token = json.loads(response.text)
+        assert list(token) == expected_value
+        print("Все поля присутствуют")
