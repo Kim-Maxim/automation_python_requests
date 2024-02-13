@@ -12,6 +12,8 @@
 - pip instal datetime
 - pip install selenium
 - pip instal requests
+- pip install black
+- pip instal pydantic
 - pip install allure-pytest
 - pip install pytest-ordering
 - pip install pytest-rerunfailures (--reruns 1)
