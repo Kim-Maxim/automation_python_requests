@@ -77,3 +77,4 @@ class GoogleMapsApi():
         result_delete = http_method.put(delete_url, body=json_for_delete_new_location)
         print(result_delete.text)
         return result_delete
+    
